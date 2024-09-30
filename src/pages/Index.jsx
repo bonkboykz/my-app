@@ -1,7 +1,9 @@
-export function IndexPage() {
-  const isUserLoggedIn = true;
+import { useSelector } from "react-redux";
 
-  if (!isUserLoggedIn) {
+export function IndexPage() {
+  const auth = useSelector((state) => state.auth);
+
+  if (!auth.isLoggedIn) {
     window.location.href = "/auth/login";
   } else {
     window.location.href = "/dashboard/home";
