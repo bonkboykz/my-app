@@ -3,6 +3,8 @@ import { useSelector } from "react-redux";
 export function IndexPage() {
   const auth = useSelector((state) => state.auth);
 
+  console.log(auth);
+
   if (!auth.isLoggedIn) {
     window.location.href = "/auth/login";
   } else {

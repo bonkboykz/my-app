@@ -1,5 +1,5 @@
 import "./Header.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { logout } from "../../store/actions/auth";
 import { useNavigate } from "react-router-dom";
@@ -13,6 +13,8 @@ export function Header({ className }) {
     navigate("/auth/login");
   };
 
+  const auth = useSelector((state) => state.auth);
+
   return (
     <div className={`header ${className}`}>
       <div className="header__left-part">
@@ -24,10 +26,17 @@ export function Header({ className }) {
         </div>
       </div>
 
-      <div>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "8px",
+        }}
+      >
+        <div>{auth.user.username}</div>
         {/* User profile round avatar */}
         <div className="header__profile">
-          <img src="https://via.placeholder.com/150" alt="profile" />
+          <img src="https://via.placeholder.com/64" alt="profile" />
         </div>
         <button type="submit" onClick={vyitiOtsuda}>
           Logout
