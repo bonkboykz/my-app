@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 
 import "./Sidebar.css";
+import { WeatherWidget } from "../WeatherWidget/WeatherWidget";
 
 export function Sidebar({ className }) {
   return (
@@ -17,6 +18,8 @@ export function Sidebar({ className }) {
           <NavLink to="/dashboard/settings">Settings</NavLink>
         </li>
       </ul>
+
+      <WeatherWidget />
     </div>
   );
 }

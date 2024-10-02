@@ -5,3 +5,12 @@
 .dashboard-layout main {
     background-color: #f5f5f5;
 }
+
+.dashboard-layout.is-dark {
+    background-color: #333;
+    color: white;
+}
+
+.dashboard-layout.is-dark main {
+    background-color: #444;
+}
