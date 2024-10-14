@@ -1,0 +1,16 @@
+.Card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color: white;
+    border-radius: 5px;
+    /* border-radius-top-left: 0px;
+    border-radius-bottom-left: 0px; */
+    column-gap: 10px;
+}
+
+.Card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

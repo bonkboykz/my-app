@@ -2,12 +2,13 @@ import { useDispatch } from "react-redux";
 import { login } from "../store/actions/auth";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
+import { API_TOKEN, BACKEND_URL, BASE_URL } from "../constants";
 
 export function LoginPage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     const formData = new FormData(e.target);
 
     e.preventDefault();
@@ -15,12 +16,25 @@ export function LoginPage() {
     const username = formData.get("username");
     const password = formData.get("password");
 
-    console.log(username, password);
+    try {
+      const response = await fetch(`${BACKEND_URL}/auth/local`, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+        body: JSON.stringify({
+          identifier: username,
+          password: password,
+        }),
+      });
 
-    if (username === "admin" && password === "admin") {
-      dispatch(login({ username }));
+      const data = await response.json();
+
+      dispatch(login(data));
 
       navigate("/");
+    } catch (e) {
+      console.error(e);
     }
   };
 

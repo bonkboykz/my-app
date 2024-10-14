@@ -1,0 +1,13 @@
+.Dashboard {
+    padding: 20px;
+}
+
+.Anime-Grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.Anime-Grid .Card {
+    
+}
